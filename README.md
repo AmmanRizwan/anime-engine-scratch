@@ -34,9 +34,7 @@ cmake --build .
 
 ## Preview
 
-<video src="./resources/preview.mp4" autoplay muted loop controls width="100%">
-  Your browser does not support the video tag.
-</video>
+![Video-Preivew](./resources/preview.gif)
 
 ## 💡 Usage Tips
 
