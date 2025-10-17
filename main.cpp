@@ -1,26 +1,40 @@
 #include <QApplication>
-#include <QWidget>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QMovie>
+#include <QString>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QWidget window;
-    window.setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
-    window.setAttribute(Qt::WA_TranslucentBackground);
-    window.setStyleSheet("background-color: rgba(30,30,30,220); border-radius: 10px");
+    if (argc < 2) {
+        qWarning("Usage: ./anime-engine-scrach <clipname>");
+        return -1;
+    }
 
-    QLabel *label = new QLabel("Always on Top Window App");
-    label->setStyleSheet("color: white; font-size:16px");
+    QWidget w;
+    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    w.setAttribute(Qt::WA_TranslucentBackground);
 
-    QVBoxLayout *layout = new QVBoxLayout(&window);
+    QLabel *label = new QLabel(&w);
+    label->setAlignment(Qt::AlignCenter);
+
+    QString filePath = QString("utils/%1.gif").arg(argv[1]);
+    QMovie *movie = new QMovie(filePath);
+    if (!movie->isValid()) {
+        label->setText("Failed to Load GIF");
+    }
+    else {
+        label->setMovie(movie);
+        movie->start();
+    }
+
+    QVBoxLayout *layout = new QVBoxLayout(&w);
     layout->addWidget(label);
-    layout->setContentsMargins(20,20,20,20);
+    layout->setContentsMargins(0,0,0,0);
+    w.setLayout(layout);
 
-    window.setLayout(layout);
-    window.resize(300, 100);
-    window.show();
+    w.show();
     return a.exec();
 }

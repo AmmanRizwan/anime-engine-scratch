@@ -16,6 +16,8 @@ set(PROJECT_SOURCES
         main.cpp
 )
 
+file(COPY ${CMAKE_SOURCE_DIR}/utils DESTINATION ${CMAKE_BINARY_DIR})
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(anime-engine-scrach
         MANUAL_FINALIZATION
