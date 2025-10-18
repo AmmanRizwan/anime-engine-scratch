@@ -16,19 +16,21 @@ A sleek Qt-based application for creating floating GIF animations on your deskto
 ### Building (Linux)
 
 1. Configure and build:
-```bash
-mkdir build && cd build
+```git
+mkdir build
+cd build
 cmake ..
 ```
 
 2. Run the application:
-```bash
+```git
 cmake --build .
 ```
 
 ### Example
-```bash
-./anime-engine-scratch clip4
+```git
+# Before Run Please Check utils folder to check the gif's
+./anime-engine-scratch <filename>
 ```
 
 
