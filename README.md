@@ -13,6 +13,13 @@ A sleek Qt-based application for creating floating GIF animations on your deskto
 
 ## 🚀 Quick Start
 
+### Installation (Linux)
+
+```bash
+sudo apt update
+sudo apt install -y qt6-base-dev qt6-tools-dev-tools
+```
+
 ### Building (Linux)
 
 1. Configure and build:
